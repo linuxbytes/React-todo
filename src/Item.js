@@ -13,4 +13,4 @@ class Items extends React.Component {
   }
 }
 
-export default Item;
+export default Items;
