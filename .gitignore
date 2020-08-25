@@ -102,7 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
-<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -114,7 +113,7 @@ dist
 /coverage
 
 # production
-/build
+# /build
 
 # misc
 .DS_Store
