@@ -1,16 +1,9 @@
 import React from "react";
 
-class Items extends React.Component {
+class Header extends React.Component {
   render() {
-    return (
-      <li>
-        <label>
-          <input type="checkbox" checked={this.props.done || false} />
-          <span>{this.props.text}</span>
-        </label>
-      </li>
-    );
+    return <h1>Todos:</h1>;
   }
 }
 
-export default Item;
+export default Header;
