@@ -50,7 +50,15 @@ render() {
     return (
       <div>
         <Header />
-
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.newItemValue}
+            placeholder="New todo..."
+            onChange={this.handleChange}
+          />
+          <input type="submit" value="Add Item" />
+        </form>
         <ol>
           {this.state.items.map((item) => (
             <Item key={item.id} done={item.done} text={item.text} />
