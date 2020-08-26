@@ -22,8 +22,29 @@ constructor(props){
         },
       ],
     };
-
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 }
+
+  handleChange(event) {
+    this.setState({ newItemValue: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    let items = this.state.items.slice();
+
+    items.push({
+      text: this.state.newItemValue,
+      done: false,
+    });
+
+    this.setState({
+      newItemValue: "",
+      items: items,
+    });
+  }
 
 render() {
     return (
