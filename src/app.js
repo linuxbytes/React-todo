@@ -6,8 +6,10 @@ import Item from "./Item.js";
 import "./App.css";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+
+constructor(props){
+
+ super(props);
     this.state = {
       items: [
         {
@@ -22,29 +24,42 @@ class App extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    this.toggleTodo = this.toggleTodo.bind(this);
+}
 
-  handleChange(event) {
-    this.setState({ newItemValue: event.target.value });
-  }
+// existing handlers omitted
 
-  handleSubmit(event) {
-    event.preventDefault();
+toggleTodo(index) {
+  let items = this.state.items.slice();
 
-    let items = this.state.items.slice();
+  let item = items[index];
+  item.done = !item.done;
 
-    items.push({
-      text: this.state.newItemValue,
-      done: false,
-    });
+  this.setState({
+    items: items,
+  });
+}
+  // handleChange(event) {
+  //   this.setState({ newItemValue: event.target.value });
+  // }
 
-    this.setState({
-      newItemValue: "",
-      items: items,
-    });
-  }
+  // handleSubmit(event) {
+  //   event.preventDefault();
 
-  render() {
+  //   let items = this.state.items.slice();
+
+  //   items.push({
+  //     text: this.state.newItemValue,
+  //     done: false,
+  //   });
+
+  //   this.setState({
+  //     newItemValue: "",
+  //     items: items,
+  //   });
+  // }
+
+render() {
     return (
       <div>
         <Header />
@@ -65,18 +80,7 @@ class App extends React.Component {
       </div>
     );
   }
+
 }
-
-// function App() {
-//   return (
-//     <div>
-//       <Header />
-
-//       <ol>
-//         <Item done={false} text={"First Todo"} />
-//       </ol>
-//     </div>
-//   );
-// }
 
 export default App;
