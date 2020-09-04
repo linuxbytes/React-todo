@@ -6,10 +6,8 @@ import Item from "./Item.js";
 import "./App.css";
 
 class App extends React.Component {
-
-constructor(props){
-
- super(props);
+  constructor(props) {
+    super(props);
     this.state = {
       items: [
         {
@@ -25,41 +23,40 @@ constructor(props){
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
-}
+  }
 
-// existing handlers omitted
+  handleChange(event) {
+    this.setState({ newItemValue: event.target.value });
+  }
 
-toggleTodo(index) {
-  let items = this.state.items.slice();
+  handleSubmit(event) {
+    event.preventDefault();
 
-  let item = items[index];
-  item.done = !item.done;
+    let items = this.state.items.slice();
 
-  this.setState({
-    items: items,
-  });
-}
-  // handleChange(event) {
-  //   this.setState({ newItemValue: event.target.value });
-  // }
+    items.push({
+      text: this.state.newItemValue,
+      done: false,
+    });
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
+    this.setState({
+      newItemValue: "",
+      items: items,
+    });
+  }
 
-  //   let items = this.state.items.slice();
+  toggleTodo(index) {
+    let items = this.state.items.slice();
 
-  //   items.push({
-  //     text: this.state.newItemValue,
-  //     done: false,
-  //   });
+    let item = items[index];
+    item.done = !item.done;
 
-  //   this.setState({
-  //     newItemValue: "",
-  //     items: items,
-  //   });
-  // }
+    this.setState({
+      items: items,
+    });
+  }
 
-render() {
+  render() {
     return (
       <div>
         <Header />
@@ -80,7 +77,6 @@ render() {
       </div>
     );
   }
-
 }
 
 export default App;
