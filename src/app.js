@@ -6,10 +6,8 @@ import Item from "./Item.js";
 import "./App.css";
 
 class App extends React.Component {
-
-constructor(props){
-
- super(props);
+  constructor(props) {
+    super(props);
     this.state = {
       items: [
         {
@@ -24,7 +22,7 @@ constructor(props){
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-}
+  }
 
   handleChange(event) {
     this.setState({ newItemValue: event.target.value });
@@ -46,7 +44,7 @@ constructor(props){
     });
   }
 
-render() {
+  render() {
     return (
       <div>
         <Header />
@@ -67,7 +65,6 @@ render() {
       </div>
     );
   }
-
 }
 
 // function App() {
